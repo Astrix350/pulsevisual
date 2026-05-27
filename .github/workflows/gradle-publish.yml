@@ -23,11 +23,12 @@ jobs:
           gradle-version: '8.8'
 
       - name: Build
-        run: gradle build
+        working-directory: pulsevisual
+        run: gradle build --no-daemon
 
       - name: Upload JAR
         uses: actions/upload-artifact@v4
         with:
           name: pulsevisual-mod
-          path: build/libs/pulsevisual-*.jar
+          path: pulsevisual/build/libs/pulsevisual-*.jar
           retention-days: 30
