@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "pulsevisual",
+  "version": "${version}",
+  "name": "PulseVisual",
+  "description": "Premium visual enhancement mod. Custom HUD, motion blur, zoom, hit effects, armor overlay, FPS limiter, night vision, and much more.",
+  "authors": ["PulseVisual Team"],
+  "contact": {
+    "homepage": "https://modrinth.com/mod/pulsevisual",
+    "issues": "https://github.com/pulsevisual/issues"
+  },
+  "license": "MIT",
+  "icon": "assets/pulsevisual/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.pulsevisual.PulseVisualClient"
+    ]
+  },
+  "mixins": [
+    "pulsevisual.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.15.0",
+    "minecraft": "~1.21.1",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}

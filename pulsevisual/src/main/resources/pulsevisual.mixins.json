@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "package": "com.pulsevisual.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [],
+  "client": [
+    "MixinGameRenderer",
+    "MixinInGameHud",
+    "MixinCameraSubmersionType",
+    "MixinMouseHandler",
+    "MixinLivingEntity",
+    "MixinLocalPlayer"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
