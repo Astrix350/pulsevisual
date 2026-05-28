@@ -105,7 +105,7 @@ public class PulseConfigScreen extends Screen {
             }
             case 3 -> { // Gameplay
                 options.add(new BoolOption("FPS Limiter", () -> cfg.fpsLimit, v -> cfg.fpsLimit = v));
-                options.add(new SliderOption("FPS Cap", () -> (float)cfg.fpsLimitValue, v -> cfg.fpsLimitValue = (int)v, 15f, 300f));
+                options.add(new SliderOption("FPS Cap", () -> (float)cfg.fpsLimitValue, v -> cfg.fpsLimitValue = Math.round(v), 15f, 300f));
             }
         }
     }
