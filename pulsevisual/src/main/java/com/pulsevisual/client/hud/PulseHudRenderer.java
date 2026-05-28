@@ -14,11 +14,8 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
-import net.minecraft.world.biome.Biome;
 
 import java.util.Collection;
-import java.util.Optional;
 
 public class PulseHudRenderer {
 
@@ -201,12 +198,10 @@ public class PulseHudRenderer {
         }
 
         if (cfg.showBiome && player.getWorld() != null) {
-            Optional<RegistryEntry<Biome>> biome = player.getWorld()
-                    .getBiome(player.getBlockPos()).getEntryOptional();
-            String biomeName = biome.map(b -> {
-                String id = b.getKey().map(k -> k.getValue().getPath()).orElse("unknown");
-                return capitalize(id.replace("_", " "));
-            }).orElse("Unknown");
+            var biomeEntry = player.getWorld().getBiome(player.getBlockPos());
+            String biomeName = biomeEntry.getKey()
+                    .map(k -> capitalize(k.getValue().getPath().replace("_", " ")))
+                    .orElse("Unknown");
             entries.add(new String[]{"Biome", biomeName});
         }
 
@@ -348,5 +343,4 @@ public class PulseHudRenderer {
                 || e == StatusEffects.ABSORPTION.value() || e == StatusEffects.SATURATION.value()
                 || e == StatusEffects.LUCK.value() || e == StatusEffects.DOLPHINS_GRACE.value()
                 || e == StatusEffects.HERO_OF_THE_VILLAGE.value() || e == StatusEffects.CONDUIT_POWER.value();
-    }
-}
+    }}
